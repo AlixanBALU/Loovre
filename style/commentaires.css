@@ -1,0 +1,81 @@
+@import url("base.css");
+@import url("popular.css");
+
+.header-title h2, .header-title h3, .header-title a {
+    display: none;
+}
+
+section.container-comment {
+    margin-top: 150px;
+}
+
+.container-title-comment h2 {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 55px;
+    color: black;
+}
+
+.container-title-comment a h2 {
+    text-decoration: underline dotted;
+}
+
+.container-title-comment p {
+    color: var(--grey);
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.container-comment form {
+    display: inline-flex;
+    gap: 80px;
+}
+
+.container-comment form select {
+    outline: none;
+    border: none;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--blue);
+    transition: color 100ms ease-out;
+    background-color: var(--background-light-grey);
+}
+
+.container-comment form button {
+    background-color: var(--blue);
+    color: white;
+    padding: 10px 20px;
+    border: 0 solid;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    transition: transform 200ms ease-out;
+}
+
+.container-comment form button:hover {
+    transform: scale(105%);
+}
+
+.container-comment form button:active {
+    transform: scale(100%);
+}
+
+.container-comment-posted {
+    margin-top: 50px;
+}
+
+.container-comment-posted {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.user-comment {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.date {
+    font-style: italic;
+}

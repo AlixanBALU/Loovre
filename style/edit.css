@@ -1,0 +1,69 @@
+@import url('base.css');
+@import url('popular.css');
+@import url('searchbar-aside.css');
+
+.header-title {
+    display: none;
+}
+
+.header-content {
+    min-height: inherit;
+    background-image: none;
+}
+
+nav.nav-content {
+    position: fixed;
+    width: 95%;
+    backdrop-filter: blur(10px);
+    background-color: var(--background-light-grey-opacity);
+}
+
+section.section-card-edit {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    justify-content: space-between;
+}
+
+.card-edit {
+    width: 280px;
+    overflow: hidden;
+    border: 0 solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: white;
+    box-shadow: 0 0 20px white;
+}
+
+.img-overflow-container {
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
+}
+
+.img-overflow-container img{
+    width: 280px;
+}
+
+.container-content-edit {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+
+.container-content-edit h3 {
+    font-size: 30px;
+    font-weight: 600 ;
+}
+
+.container-edit img {
+    width: 30px;
+    padding: 0 10px;
+    transition: transform 200ms ease-out, filter 200ms ease-out;
+}
+
+.container-edit img:hover {
+    transform: scale(120%);
+}

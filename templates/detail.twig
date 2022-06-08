@@ -1,0 +1,151 @@
+{% extends 'popular.twig' %}
+{% block main %}
+<section class="detail">
+    <a href="recherche.php">
+        <div class="search">
+            <img src="./img/svg/arrow-left.svg" alt="">
+            retour à la&nbsp;<span>recherche</span>
+        </div>
+    </a>
+{% for d in destination %}
+    <div class="img-overflow-container">
+        <img src="{{ d.image }}" alt="{{d.titre}}" title="Image de {{d.titre}}">
+    </div>
+        <div class="container-texte-content">
+            <h2>{{ d.titre }}</h2>
+{% for l in localisation %}
+                <div class="information-content" title=
+{% if l.chaleur <= 1 %}
+                    "Il fait froid dans ce pays">
+{% elseif l.chaleur <= 5  %}
+                    "Il fait frais dans ce pays">
+{% elseif l.chaleur <= 8  %}
+                    "Il fait chaud dans ce pays">
+{% else %}
+                    "Il fait très chaud dans ce pays">
+{% endif %}
+                    <h4>{{ l.pays_nom }}</h4>
+                    <h5>{{ l.continent_nom }}</h5>
+                </div>
+{% endfor %}
+                <div class="container-agrement">
+{% for couche in couchage %}
+                    <div class="sleep-content">
+                        <img src="{{ couche.svg }}" alt="">
+                        {{ couche.nom }}
+                    </div>
+{% endfor %}
+{% for e in etiquette %}
+                    <div class="tag-content">
+                        <img src="{{ e.svg }}" alt="">
+                        {{ e.nom }}
+                    </div>
+                    {% endfor %}
+            </div>
+            <div class="description-container">
+                <p>{{ d.description}}</p>
+            </div>
+            <div class="price">
+                {{ d.prix }}€
+            </div>
+            <div class="stats-detail">
+                <div class="stats note">
+                    <img src="./img/svg/star.svg" alt="X" title="note moyenne">
+                    {{ avg_note }}
+                </div>
+                <div class="stats comm">
+                    <img src="./img/svg/comment.svg" alt="" title="Nombre de commmentaires hors réponses">
+                    {{ count_comm }}
+                </div>
+            </div>
+        </div>
+{% endfor %}
+    <div class="comment-section">
+        <div class="container-to-comment">
+{% for d in destination %}
+            <form action="detail.php?id={{d.id}}" method="post">
+{% endfor %}
+                <div class="rating">
+                    <label>
+                    <input type="radio" name="stars" value="1" />
+                    <span class="icon">★</span>
+                    </label>
+                    <label>
+                    <input type="radio" name="stars" value="2" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    </label>
+                    <label>
+                    <input type="radio" name="stars" value="3" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>   
+                    </label>
+                    <label>
+                    <input type="radio" name="stars" value="4" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    </label>
+                    <label>
+                    <input type="radio" name="stars" value="5"/>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    </label>
+                </div>
+                <div class="container-input-comment">
+                    <input type="text" name="pseudo" placeholder="Inserez votre pseudo" aria-required="true" required>
+                    <input type="text" name="comment" placeholder="Ajoutez un commentaire" aria-required="true" required >
+                </div>
+                <div class="buttons-form-comment">
+                    <button type="submit">Envoyer</button>
+                    <button type="reset">Annuler</button>
+                </div>
+            </form>
+        </div>
+        <div class="container-comments">
+{% for c in commentaire %}
+{% if c.id_commentaire == null %}
+            <div class="text-container-comment">
+                <div class="user-profil">
+                    <img src="./img/svg/profil.svg" alt="">
+                </div>
+                <div class="text-comment">
+                    <span class="pseudo-user">{{ c.pseudo }}</span>
+                    <p>{{ c.texte }}</p>
+                    <span class="italic">{{ c.date_com }}</span>
+                    <div class="notation-comment">
+                        {% for i in 1..c.note %}
+                            <img src="./img/svg/star.svg" alt="X">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+{% for c2 in commentaire %}
+{% if c2.id_commentaire == c.id %}
+            <div class="text-container-comment reply-comment">
+                <div class="user-profil">
+                    <img src="./img/svg/profil.svg" alt="">
+                </div>
+                <div class="text-comment">
+                    <span class="pseudo-user">{{ c.pseudo }}</span>
+                    <p>{{ c.texte }}</p>
+                    <span class="italic">{{ c.date_com }}</span>
+                    <div class="notation-comment">
+                        {% for i in 1..c.note %}
+                            <img src="./img/svg/star.svg" alt="X">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+    </div>
+</section>
+{% endblock %}

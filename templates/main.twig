@@ -1,0 +1,125 @@
+{% extends 'base.twig' %}
+{% block main %}
+<section class="container-us">
+    <div class="container-img-us">
+        <div class="illustration-grande"></div>
+        <div class="illustration-petite"></div>
+    </div>
+    <article class="container-description-us">
+        <h2>Pourquoi nous choisir ?</h2>
+        <p>Nous sommes Loovre, une agence de voyage un peu particulière. Nore philosophie est d’organiser tout pour notre cllient, vous nous donnez juste une destination, une date et un prix et on s’occupe du reste.</p>
+        <a href="recherche.php" class="go-container">
+            <div class="go-button">
+                C'est parti
+            </div>
+            <div class="go-button-effect">
+                C'est parti
+            </div>
+        </a>
+        <hr/>
+    </article>
+</section>
+<section class="container-popular">
+    <div class="container-title-h2">
+        <h2>Destinations Populaires</h2>
+        <p>Voici les 4 destinations les plus populaires de notre site.</p>
+    </div>
+    <div class="container-card-popular">
+        {% for p in popular %}
+        <a href="./detail.php?id={{p.id}}">
+            <article class="card-popular">
+                <div class="container-img-popular">
+                    <img src="{{ p.image }}" alt="">
+                </div>
+                <div class="container-description-popular">
+                    <div class="number-description-popular">
+                        <span>0{{ loop.index }}</span>
+                        <hr>
+                    </div>
+                    <div class="text-description-popular">
+                        <h3>{{ p.titre }}</h3>
+                    </div>
+                </div>
+            </article>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+<section class="container-organize">
+    <div class="container-title-h2 align-center">
+        <h2>Pourquoi organiser un voyage ?</h2>
+        <p>Découvrez les points clefs des avantages de choisir Loovre.</p>
+    </div>
+    <div class="container-card-organize">
+        <article class="card-organize">
+            <div class="img-background-organize">
+                <img src="./img/svg/hiking.svg" alt="">
+            </div>
+            <h3>{{count_dest}} Destinations</h3>
+            <p>Loovre propose de multiples destinations préorganisé à travers le monde entier, venez les découvrir !</p>
+        </article>
+        <article class="card-organize">
+            <div class="img-background-organize">
+                <img src="./img/svg/employes.svg" alt="">
+            </div>
+            <h3>+250 Employés</h3>
+            <p>Loovre engage +250 employés qui auront pour but de vous proposer la meilleur éxpérience possible</p>
+        </article>
+        <article class="card-organize">
+            <div class="img-background-organize">
+                <img src="./img/svg/clients.svg" alt="">
+            </div>
+            <h3>+10.000 Clients</h3>
+            <p>+10.000 Clients nous ont fait confiance depuis la création de Loovre, rejoignez les !</p>
+        </article>
+    </div>
+</section>
+<section class="container-continent">
+    <div class="container-title-h2">
+        <h2>Découvrez la destination de vos rêves !</h2>
+        <p>Recherchez la destination de vos rêves  en recherchant en fonction des continents.</p>
+    </div>
+    <div class="container-card-continent">
+        <a href="recherche.php">
+            <article class="card-continent">
+                <div class="container-img-continent">
+                    <img src="./img/europe.jpg" alt="Image d'une destination du continent">
+                </div>
+                <div class="container-description-continent">
+                    <h3>Europe</h3>
+                </div>
+            </article>
+        </a>
+        <a href="recherche.php">
+            <article class="card-continent">
+                <div class="container-img-continent">
+                    <img src="./img/asie.jpg" alt="Image d'une destination du continent">
+                </div>
+                <div class="container-description-continent">
+                    <h3>Asie</h3>
+                </div>
+            </article>
+        </a>
+        <a href="recherche.php">
+            <article class="card-continent">
+                <div class="container-img-continent">
+                    <img src="./img/america.jpg" alt="Image d'une destination du continent">
+                </div>
+                <div class="container-description-continent">
+                    <h3>Amériques</h3>
+                </div>
+            </article>
+        </a>
+        <a href="recherche.php">
+            <article class="card-continent">
+                <div class="container-img-continent">
+                    <img src="./img/africa.jpg" alt="Image d'une destination du continent">
+                </div>
+                <div class="container-description-continent">
+                    <h3>Afrique</h3>
+                </div>
+            </article>
+        </a>
+    </div>
+</section>
+{% endblock %}

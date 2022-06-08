@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loovre</title>
+    <link rel="stylesheet" href="style/initializing.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header role="banner">
+        <div class="header-content">
+            <nav role="navigation" class="nav-content">
+                <div class="nav-logo">
+                    <img src="./img/loovre-icon.svg" alt="logo">
+                    <title>Loovre</title>
+                </div>
+                <ul class="nav-links">
+                    <li class="nav-li-active">
+                        <a href="#">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Destinations
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Rechercher
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" class="modifier-button">
+                    Modifier
+                </a>
+            </nav>
+            <div class="header-title">
+                <h2>Planifiez vos voyages avec Loovre</h2>
+                <h3>Voyagez à travers le monde n’a jamais était aussi simple grace à Loovre</h3>
+                <a href="#" class="decouvrir-button">
+                    Découvrir
+                </a>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+        <section class="container-searchbar">
+            <form action="liste.php" method="post">
+                <h2>Recherche avancées</h2>
+                <div class="searchbar-trend">
+                    <div class="searchbar-trend-loovre">
+                        <legend>Tendance Loovre :</legend>
+                        <div class="trend-input">
+                            <label for="trend">Oui :</label>
+                            <input type="radio" id="true" name="trend" value="oui"/>
+                        </div>
+                        <div class="trend-input">
+                            <label for="trend">Non :</label>
+                            <input type="radio" id="false" name="trend" value="non" checked/>
+                        </div>
+                    </div>
+                    <div class="searchbar-destination">
+                        <legend>Destination :</legend>
+                        <div class="destination-input">
+                            <label for="pays">Pays</label>
+                            <input list="pays" id="place" name="pays" placeholder="Entrez un pays" />
+                        </div>
+                        <datalist id="pays">
+                            <option value="France"></option>
+                            <option value="Espagne"></option>
+                        </datalist>
+                        <div class="destination-input">
+                            <label for="pays">Continent</label>
+                            <input list="continent" id="place" name="pays" placeholder="Entrez un continent" />
+                        </div>
+                        <datalist id="continent">
+                            <option value="Europe"></option>
+                            <option value="Asie"></option>
+                        </datalist>
+                    </div>
+                    <div class="searchbar-price-loovre">
+                        <legend>Prix :</legend>
+                        <div class="price-input">
+                            <label for="trend">Oui :</label>
+                            <input type="text" id="minimum" name="price" placeholder="Prix minimum"/>
+                        </div>
+                        <div class="price-input">
+                            <label for="trend">Non :</label>
+                            <input type="text" id="maximum" name="price" placeholder="Prix maximum"/>
+                        </div>
+                    </div>
+                    <div class="searchbar-agrement-loovre">
+                        <div class="container-tag">
+                            <div class="price-input">
+                                <label for="tag">Etiquette :</label>
+                                <input list="tag" id="agrement" name="tag"/>
+                            </div>
+                            <datalist id="tag">
+                                <option value="Relax"></option>
+                                <option value="Aventure"></option>
+                            </datalist>
+                            <div class="price-input">
+                                <label for="sleep">Type de Couchage :</label>
+                                <input list="sleep" id="agrement" name="sleep"/>
+                            </div>
+                            <datalist id="sleep">
+                                <option value="Hotel"></option>
+                                <option value="Villa"></option>
+                            </datalist>
+                        </div>
+                        <div class="container-sleep">
+                            <legend>Type de Couchage :</legend>
+                            <div class="price-input">
+                                <label for="trend">Oui :</label>
+                                <input type="text" id="minimum" name="price" placeholder="Prix minimum"/>
+                            </div>
+                            <div class="price-input">
+                                <label for="trend">Non :</label>
+                                <input type="text" id="maximum" name="price" placeholder="Prix maximum"/>
+                            </div>
+                        </div>
+                        <div class="container-sleep">
+                            <div class="price-input">
+                                <label for="trend">Vignette</label>
+                                <input type="radio" id="card" name="display"/>
+                            </div>
+                            <div class="price-input">
+                                <label for="trend">Liste</label>
+                                <input type="radio" id="list" name="display"/>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="sublit-form-button">
+                        <img src="./img/svg/search.svg" alt="Envoyer">
+                    </button>
+                </div>
+            </form>
+        </section>
+        <section class="container-popular">
+            <div class="container-title-popular">
+                <h2>Destinations Populaires</h2>
+                <p>Voici les 4 destinations les plus populaires de notre site.</p>
+            </div>
+            <div class="container-card-popular">
+                <article class="card-popular">
+                    <div class="container-img-title-popular">
+                        <h3>Titre de la destination</h3>
+                        <img src="" alt="">
+                    </div>
+                    <img src="#" alt="Image d'une destination tendance">
+                    <div class="container-description-popular">
+                        <div class="number-description-popular">
+                            <span>02</span>
+                            <hr>
+                        </div>
+                        <div class="text-description-popular">
+                            <h4>Europe</h4>
+                            <img src="" alt="">
+                            <h4>1 semaine</h4>
+                        </div>
+                    </div>
+                </article>
+                <article class="card-popular">
+                    <div class="container-img-title-popular">
+                        <h3>Titre de la destination</h3>
+                        <img src="" alt="">
+                    </div>
+                    <img src="#" alt="Image d'une destination tendance">
+                    <div class="container-description-popular">
+                        <div class="number-description-popular">
+                            <span>03</span>
+                            <hr>
+                        </div>
+                        <div class="text-description-popular">
+                            <h4>Europe</h4>
+                            <img src="" alt="">
+                            <h4>1 semaine</h4>
+                        </div>
+                    </div>
+                </article>
+                <article class="card-popular">
+                    <div class="container-img-title-popular">
+                        <h3>Titre de la destination</h3>
+                        <img src="" alt="">
+                    </div>
+                    <img src="#" alt="Image d'une destination tendance">
+                    <div class="container-description-popular">
+                        <div class="number-description-popular">
+                            <span>04</span>
+                            <hr>
+                        </div>
+                        <div class="text-description-popular">
+                            <h4>Europe</h4>
+                            <img src="" alt="">
+                            <h4>1 semaine</h4>
+                        </div>
+                    </div>
+                </article>
+                <article class="card-popular">
+                    <div class="container-img-title-popular">
+                        <h3>Titre de la destination</h3>
+                        <img src="" alt="">
+                    </div>
+                    <img src="#" alt="Image d'une destination tendance">
+                    <div class="container-description-popular">
+                        <div class="number-description-popular">
+                            <span>01</span>
+                            <hr>
+                        </div>
+                        <div class="text-description-popular">
+                            <h4>Europe</h4>
+                            <img src="" alt="">
+                            <h4>1 semaine</h4>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <div class="footer-main">
+            <div class="footer-logo">
+                <img src="" alt="">
+                <title>Loovre</title>
+            </div>
+            <ul class="footer-plan-site">
+                <li>Modifier</li>
+                <li>Destinations</li>
+                <li>Rechercher</li>
+                <li class="footer-li-active">Acceuil</li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2022 Loovre LLC - All right reserved.</p>
+            <p>Integrated & Imagined by Alixan BALU</p>
+        </div>
+    </footer>
+</body>
+
+</html>

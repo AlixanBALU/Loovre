@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loovre</title>
+    <link rel="stylesheet" href="style/initializing.css">
+    <link rel="stylesheet" href={{css}}>
+    <link rel="shortcut icon" href="./img/loovre-icon.svg" type="image/x-icon">
+</head>
+<body>
+    <header role="banner">
+        <div class="header-content">
+            <nav role="navigation" class="nav-content">
+                <div class="nav-logo">
+                    <a href="index.php">
+                        <img src="./img/loovre-icon.svg" alt="logo">
+                        <h1>Loovre</h1>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li class="nav-li-active">
+                        <a href="index.php">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="destination.php">
+                            Nos Destinations
+                        </a>
+                    </li>
+                    <li>
+                        <a href="recherche.php">
+                            Rechercher
+                        </a>
+                    </li>
+                    <li>
+                        <a href="comment.php">
+                            Commentaires
+                        </a>
+                    </li>
+                </ul>
+                <a href=".edit.php" class="modify-container">
+                    <div class="modify-button">
+                        Modifier
+                    </div>
+                    <div class="modify-button-effect">
+                        Modifier
+                    </div>
+                </a>
+            </nav>
+            <div class="header-title">
+                <h2>Planifiez vos voyages avec Loovre</h2>
+                <h3>Voyagez à travers le monde n’a jamais était aussi simple grace à Loovre</h3>
+                <a href="recherche.php" class="decouvrir-button">
+                    Découvrir
+                </a>
+                <img src="./img/svg/world.svg" alt="worldmap">
+            </div>
+        </div>
+    </header>
+    <div class="wrap-aside-main">
+        <aside>
+            {% block aside %}
+            {% endblock %}
+        </aside>
+        <main role="main">
+            {% block main %}
+            {% endblock %}
+            <section class="container-popular">
+                <div class="container-title-h2">
+                    <h2>Destinations Populaires</h2>
+                    <p>Voici les 4 destinations les plus populaires de notre site.</p>
+                </div>
+                <div class="container-card-popular">
+                    {% for p in popular %}
+                    <a href="./detail.php?id={{p.id}}">
+                        <article class="card-popular">
+                            <div class="container-img-popular">
+                                <img src="{{ p.image }}" alt="">
+                            </div>
+                            <div class="container-description-popular">
+                                <div class="number-description-popular">
+                                    <span>0{{ loop.index }}</span>
+                                    <hr>
+                                </div>
+                                <div class="text-description-popular">
+                                    <h3>{{ p.titre }}</h3>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer role="contentinfo">
+        <div class="footer-main">
+            <div class="footer-logo">
+                <img src="./img/loovre-icon.svg" alt="">
+                <title>Loovre</title>
+            </div>
+            <ul class="footer-plan-site">
+                <li>
+                    <a href=".edit.php">        
+                        Modifier
+                    </a>
+                </li>
+                <li>
+                    <a href="destination.php">
+                        Nos Destinations
+                    </a>
+                </li>
+                <li>
+                    <a href="recherche.php">
+                        Rechercher
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php">
+                        Acceuil
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2022 Loovre LLC - All right reserved.</p>
+            <p>Integrated & Imagined by Alixan BALU</p>
+        </div>
+    </footer>
+</body>
+</html>

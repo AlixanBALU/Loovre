@@ -1,0 +1,72 @@
+{% extends 'popular.twig' %}
+{% block main %}
+<section class="container-searchbar">
+    <form action="result_filtre.php" method="post">
+        <div class="searchbar-trend-loovre flex-form">
+            <div class="trend-input">
+                <input type="radio" id="true" name="trend" value="oui"/>
+                <label for="trend">Tendance</label>
+            </div>
+            <div class="trend-input">
+                <input type="radio" id="false" name="trend" value="non" checked/>
+                <label for="trend">Non tendance</label>
+            </div>
+        </div>
+        <div class="searchbar-price-loovre ">
+            <legend>Prix :</legend>
+            <div class="price-input-group">
+                <div class="price-input">
+                    <input type="number" id="minimum" name="price-minimum" placeholder="Min."/>
+                    <span>€</span>
+                </div>
+                <div class="price-input">
+                    <input type="number" id="maximum" name="price-maximum" placeholder="Max."/>
+                    <span>€</span>
+                </div>
+            </div>
+        </div>
+        <div class="searchbar-agrement-loovre flex-form">
+            <div class="tag-select">
+                <title>Etiquette reliée</title>
+                <select id="etiquette" name="tag">
+                    <option value="">Etiquette</option>
+                    {% for ct in count_tag %}
+                        <option value="{{ct.nom}}">{{ ct.nom }} ({{ct.count_tag}})</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tag-select">
+                <title>Type de couchage</title>
+                <select id="agrement" name="sleep">
+                    <option value="">Type de Couchage</option>
+                    {% for cs in count_sleep %}
+                        <option value="{{cs.nom}}">{{ cs.nom }} ({{cs.count_sleep}})</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tag-select">
+                <title>Pays</title>
+                <select id="place" name="pays">
+                    <option value="">Pays</option>
+                    {% for cp in count_pays %}
+                        <option value="{{cp.nom}}">{{ cp.nom }} ({{cp.count_pays}})</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="container-display flex-form">
+            <div class="price-input">
+                <input type="radio" id="card" name="display" value="card" checked/>
+                <label for="trend">Vignette</label>
+            </div>
+            <div class="price-input">
+                <input type="radio" id="list" name="display" value="list"/>
+                <label for="trend">Liste</label>
+            </div>
+        </div>
+        <button type="submit" class="submit-form-button">
+            <img src="./img/svg/search.svg" alt="Envoyer">
+        </button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.twig' %}
+{% block main %}
+{% for d in destination %}
+
+        <form action="insert.php&update=true" method="post">
+            <img src="{{ d.image }}" alt="">
+            <input type="text" name="image" aria-required="true" required>
+            <div class="container-modification-content">
+                <div class="modify-title">
+                    <label for="title">Modifier le titre</label>
+                    <input type="text" name="title" id="title" aria-required="true" required>
+                </div>
+                <div class="modify-description">
+                    <label for="description">Modifier la desription</label>
+                    <input type="text" size="50" name="description" id="description" aria-required="true" required>
+                </div>
+                <div class="modify-price">
+                    <label for="price">Modifier le prix</label>
+                    <input type="number" min="0" value="{{d.prix}}" name="price" id="price" aria-required="true" required>
+                </div>
+                <div class="modify-trend">
+                    <label for="trend">Facteur tendance :</label>
+                    <input type="number" min="0" value="{{d.tendance}}" name="trend" id="trend" aria-required="true" required>
+                </div>
+{% for l in localisation %}
+                <div class="modify-pays">
+                    <label for="pays">Pays relié :</label>
+                    <select name="pays" id="pays" aria-required="true" required>
+                        <option value="{{l.pays_nom}}">{{l.pays_nom}}</option>
+{% for dp in data_pays %}
+{% if dp.nom != l.pays_nom %}
+                        <option value="{{dp.nom}}">{{dp.nom}}</option>
+{% endif %}
+{% endfor %}
+                    </select>
+                </div>
+{% endfor %}
+{% for c in couchage %}
+                <div class="modify-sleep">
+                    <label for="sleep">Type de couchage :</label>
+                    <select name="sleep" id="sleep" aria-required="true" required>
+                        <option value="{{c.nom}}">{{c.nom}}</option>
+{% for dc in data_couchage %}
+{% if dc.nom != c.nom %}
+                        <option value="{{dc.nom}}">{{dc.nom}}</option>
+{% endif %}
+{% endfor %}
+                    </select>
+                </div>
+{% endfor %}
+                <div class="modify-tag">
+{% for e in etiquette %}
+                    <label for="tag{{loop.index}}">Etiquettes n°{{loop.index}} :</label>
+                    <select name="tag{{loop.index}}" id="tag{{loop.index}}">
+                        <option value="{{e.nom}}">{{e.nom}}</option>
+{% for dt in data_tag %}
+{% if dt.nom != e.nom %}
+                        <option value="{{dt.nom}}">{{dt.nom}}</option>
+{% endif %}
+
+{% endfor %}
+{% if e.nom != null %}
+                        <option value=""></option>
+{% endif %}
+                    </select>
+{% endfor %}
+                <button type="submit">Envoyer</button>
+            </div>
+        </form>
+{% endfor %}
+{% endblock main %}

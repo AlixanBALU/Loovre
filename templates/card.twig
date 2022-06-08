@@ -1,0 +1,123 @@
+{% extends 'base.twig' %}
+{% block aside %}
+<section class="container-searchbar">
+    <form action="result_filtre.php" method="post">
+        <div class="searchbar-trend-loovre flex-form">
+            <div class="trend-input">
+                <input type="radio" id="true" name="trend" value="oui"/>
+                <label for="trend">Tendance</label>
+            </div>
+            <div class="trend-input">
+                <input type="radio" id="false" name="trend" value="non" checked/>
+                <label for="trend">Non tendance</label>
+            </div>
+        </div>
+        <div class="searchbar-price-loovre ">
+            <legend>Prix :</legend>
+            <div class="price-input-group">
+                <div class="price-input">
+                    <input type="number" id="minimum" name="price-minimum" placeholder="Min."/>
+                    <span>€</span>
+                </div>
+                <div class="price-input">
+                    <input type="number" id="maximum" name="price-maximum" placeholder="Max."/>
+                    <span>€</span>
+                </div>
+            </div>
+        </div>
+        <div class="searchbar-agrement-loovre flex-form">
+            <div class="tag-select">
+                <title>Etiquette reliée</title>
+                <select id="etiquette" name="tag">
+                    <option value="">Etiquette</option>
+                    {% for ct in count_tag %}
+                        <option value="{{ct.nom}}">{{ ct.nom }} ({{ct.count_tag}})</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tag-select">
+                <title>Type de couchage</title>
+                <select id="agrement" name="sleep">
+                    <option value="">Type de Couchage</option>
+                    {% for cs in count_sleep %}
+                        <option value="{{cs.nom}}">{{ cs.nom }} ({{cs.count_sleep}})</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tag-select">
+                <title>Pays</title>
+                <select id="place" name="pays">
+                    <option value="">Pays</option>
+                    {% for cp in count_pays %}
+                        <option value="{{cp.nom}}">{{ cp.nom }} ({{cp.count_pays}})</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="container-display flex-form">
+            <div class="price-input">
+                <input type="radio" id="card" name="display" value="card" checked/>
+                <label for="trend">Vignette</label>
+            </div>
+            <div class="price-input">
+                <input type="radio" id="list" name="display" value="list"/>
+                <label for="trend">Liste</label>
+            </div>
+        </div>
+        <button type="submit" class="submit-form-button">
+            <img src="./img/svg/search.svg" alt="Envoyer">
+        </button>
+    </form>
+</section>
+{% endblock %}
+{% block main %}
+<section class="card-container">
+{% for d in destination %}
+            <div class="container-card-search">
+                <article class="card-destination">
+                    <div class="container-displayed-card">
+                        <div class="img-overflow-search">
+                            <img src="{{ d.image }}" alt="">
+                        </div>
+                        <div class="container-card-text">
+                            <h3>{{ d.titre }}</h3>
+                            <div class="container-etiquette-destination">
+{% for e in etiqueter %}
+{% if e.id_table_destination == d.destid %}
+                                    <div class="etiquette-destination">
+                                        <img src="{{ e.svg }}" alt="">
+                                        <span>{{ e.nom }}</span>
+                                    </div>
+{% endif %}
+{% endfor %}
+                            </div>
+                        </div>
+                        <div class="container-select-price-card">
+{% if d.tendance >= 400 %}
+                                <div class="card-selection">
+                                    Tendance
+                                </div>
+{% endif %}
+                        </div>
+                    </div>
+                </article>
+                <div class="container-hover-content">
+                    <div class="flex-container-content-hover">
+                        <h3>{{ d.titre }}</h3>
+                        <p>{{ d.description }}</p>
+                        <div class="price_link-card-flex">
+                            <div class="price-card">
+                                {{ d.prix }} €
+                            </div>
+                            <div class="link-card">
+                                <a href="detail.php?id={{d.destid}}" aria-label="Lire plus sur cette destination sur Loovre">
+                                    <img src="./img/svg/arrow-right.svg" alt="->">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endfor %}
+            </section>
+{% endblock %}

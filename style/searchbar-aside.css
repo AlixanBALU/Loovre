@@ -1,0 +1,135 @@
+aside {
+    position: sticky;
+    top: 150px;
+    height: 100px;
+}
+
+.wrap-aside-main {
+    display: flex;
+    width: 1200px;
+    margin: auto;
+}
+
+main section {
+    width: inherit;
+
+}
+
+section.container-searchbar form {
+    display: flex;
+    font-weight: 500;
+    flex-direction: column;
+    gap: 50px;
+    width: 250px;
+}
+
+section.container-searchbar form select, section.container-searchbar form input {
+    background-color: transparent;
+}
+
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="radio"] {
+    width: 15px;
+    height: 15px;
+}
+
+.trend-input, .price-input {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+}
+
+.searchbar-price-loovre {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.searchbar-price-loovre input {
+    width: 55px;
+}
+
+.searchbar-price-loovre span {
+    transform: translateX(-3px);
+}
+
+.searchbar-price-loovre legend {
+    font-weight: 600;
+}
+
+.price-input-group {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.price-input-group input {
+    border: 0 solid;
+    font-size: 15px;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.price-input-group input:focus {
+    outline: none;
+}
+
+.searchbar-agrement-loovre {
+    display: flex;
+    gap: 10px;
+}
+
+.tag-select {
+    display: inline;
+}
+
+.searchbar-agrement-loovre select {
+    outline: none;
+    border: none;
+    font-family: 'Poppins';
+    width: 150px;
+    font-weight: 500;
+    color: var(--blue);
+    transition: color 100ms ease-out;
+}
+
+.searchbar-agrement-loovre select:hover, .searchbar-agrement-loovre select option:hover {
+    color: black;
+}
+
+button.submit-form-button {
+    padding: 0 20px;
+    width: 80px;
+    height: 80px;
+    background-color: var(--blue);
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0 solid;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px var(--blue);
+    transition: background-color 200ms ease-out, box-shadow 200ms ease-out, transform 50ms ease-out;
+    cursor: pointer;
+}
+
+button.submit-form-button:hover {
+    box-shadow: 0px 0px 20px var(--semi-blue);
+    background-color: var(--semi-blue);
+}
+
+button.submit-form-button:active {
+    transform: scale(95%);
+}
+
+button.submit-form-button img {
+    filter : invert(100%) sepia(91%) saturate(38%) hue-rotate(254deg) brightness(110%) contrast(110%)
+}

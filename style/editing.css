@@ -1,0 +1,26 @@
+@import url('base.css');
+@import url('popular.css');
+@import url('searchbar-aside.css');
+
+.header-title {
+    display: none;
+}
+
+.header-content {
+    min-height: inherit;
+    background-image: none;
+}
+
+nav.nav-content {
+    position: fixed;
+    width: 95%;
+    backdrop-filter: blur(10px);
+    background-color: var(--background-light-grey-opacity);
+}
+
+section.section-card-edit {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    justify-content: space-between;
+}

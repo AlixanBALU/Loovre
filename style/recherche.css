@@ -1,0 +1,11 @@
+@import url('base.css');
+@import url('popular.css');
+@import url('searchbar.css');
+
+.header-title img[alt="worldmap"] {
+    display: block;
+}
+
+.header-title h2, .header-title h3, .header-title a {
+    display: none;
+}

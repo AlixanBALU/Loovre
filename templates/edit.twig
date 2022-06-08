@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+{% block main %}
+    <section class="section-card-edit">
+    {% for d in destination %}
+        <article class="card-edit">
+            <div class="img-overflow-container">
+                <img src="{{ d.image }}" alt="">
+            </div>
+            <div class="container-content-edit">
+                <h3>{{ d.titre }}</h3>
+                <div class="container-edit">
+                    <a href=".editing.php?edit={{d.id}}" title="Modifier {{d.titre}}">
+                        <img src="./img/svg/edit.svg" alt="">
+                    </a>
+                    <a href=".alter.php?id={{d.id}}&delete=true">
+                        <img src="./img/svg/delete.svg" alt="X">
+                    </a>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+    </section>
+{% endblock main %}
